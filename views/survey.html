@@ -1,11 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Survey</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/diner-styles.css">
+
+    <title>Midterm</title>
 </head>
 <body>
-<p>Survey</p>
+<div class="container">
+    <h1>Midterm Survey</h1>
 
+    <form action="#" method="post" class="form-horizontal">
+
+        <!-- get food -->
+        <div class="form-group">
+            <label for="name" class="col-sm-4 control-label">Name</label>
+            <div class="col-sm-4"><input class="form-control" type="text"
+                                         name="name" id="name" value="{{ @name }}"></div>
+
+            <!-- Display an error if there is one -->
+            <check if="{{ isset(@errors['name']) }}">
+                <span class="err">{{ @errors['name'] }}</span>
+            </check>
+        </div>
+        <br>
+
+        <!-- get answers -->
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Check all that apply: </label>
+            <div class="col-sm-4">
+                <repeat group="{{ @conds }}" value="{{ @cond }}">
+                    <label><input type="checkbox" name="conds[]" value="{{ @cond }}"> {{ ucfirst(@cond) }}</label><br>
+                </repeat>
+            </div>
+
+            <!-- Display an error if there is one -->
+            <check if="{{ isset(@errors['cond']) }}">
+                <span class="err">{{ @errors['cond'] }}</span>
+            </check>
+
+        </div>
+
+        <div class="col-xs-3 text-left">
+            <input class="form-control btn btn-default"
+                   type="submit" value="Submit">
+        </div>
+    </form>
+</div>
 </body>
 </html>
