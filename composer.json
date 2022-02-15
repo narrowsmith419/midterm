@@ -1,0 +1,14 @@
+{
+  "name": "narrowsmith/328/midterm",
+  "description": "My MidTerm Survey",
+  "license": "open source",
+  "authors": [
+    {
+      "name": "Nathan Arrowsmith",
+      "email": "narrowsmith@student.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
